@@ -1,0 +1,117 @@
+/*--------------------------------------------------------------
+  # COMPONENTS
+-------------------------------------------------------------- */
+.large-button {
+  position: relative;
+  display: grid;
+  z-index: 1; // create new stacking context
+  place-items: center;
+  padding: 0 2em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--clr-white) / 0.15);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s linear, transform 0.75s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+
+    > span {
+      font-weight: 700;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.underline-indicators > * {
+  cursor: pointer;
+  padding: var(--underline-gap, 1rem) 0;
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+
+  &:hover,
+  &:focus {
+    border-color: hsl(var(--clr-white) / 0.5);
+  }
+
+  &.active,
+  &[aria-selected="true"] {
+    color: hsl(var(--clr-white) / 1);
+    border-color: hsl(var(--clr-white) / 1);
+  }
+}
+
+.tab-list {
+  --underline-gap: 0.5rem;
+  --gap: 2.2rem;
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 0.5em;
+  background-color: hsl(var(--clr-white) / 0.1744);
+  transition: background-color 0.5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: hsl(var(--clr-white) / 0.5);
+  }
+  &[aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
+    cursor: default;
+  }
+}
+
+.number-indicators > * {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  width: 2.5em;
+  aspect-ratio: 1;
+  @extend .fs-600;
+  @extend .ff-serif;
+  @extend .text-white;
+  border: 1px solid hsl(var(--clr-white) / 0.25);
+  background-color: hsl(var(--clr-white) / 0);
+  transition: border-color 0.5s ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-color: hsl(var(--clr-white) / 1);
+  }
+
+  &[aria-selected="true"] {
+    cursor: default;
+    color: hsl(var(--clr-dark));
+    background-color: hsl(var(--clr-white) / 1);
+  }
+}
