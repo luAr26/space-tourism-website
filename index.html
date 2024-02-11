@@ -21,8 +21,12 @@
     <link rel="stylesheet" href="css/styles.min.css" />
 
     <title>Frontend Mentor | Space tourism website</title>
+
+    <!-- Javascript -->
+    <script src="js/main.js" defer></script>
   </head>
   <body class="home">
+    <!-- Github pages link: https://luar26.github.io/space-tourism-website/ -->
     <header class="primary-header flex">
       <div>
         <img
@@ -31,8 +35,18 @@
           class="logo"
         />
       </div>
-      <!-- <nav>
-        <ul class="primary-navigation underline-indicators flex">
+      <button
+        class="mobile-nav-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav>
+        <ul
+          id="primary-navigation"
+          class="primary-navigation underline-indicators flex"
+        >
           <li class="active">
             <a
               class="ff-sans-cond uppercase text-white letter-spacing-2"
@@ -62,7 +76,7 @@
             >
           </li>
         </ul>
-      </nav> -->
+      </nav>
     </header>
     <div class="grid-container grid-container--home">
       <div>
@@ -74,7 +88,7 @@
           Let’s face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind of on the edge of it. Well sit
           back, and relax because we’ll give you a truly out of this world
-          experience! Explore
+          experience!
         </p>
       </div>
       <div>
