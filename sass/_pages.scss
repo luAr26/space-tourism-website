@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+  # PAGE SPECIFIC CSS
+-------------------------------------------------------------- */
+
+/* BACKGROUNDS */
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/* HOME */
+.home {
+  background-image: url(../assets/home/background-home-mobile.jpg);
+
+  @media only screen and (min-width: 35em) {
+    background-position: center center;
+    background-image: url(../assets/home/background-home-tablet.jpg);
+  }
+
+  @media only screen and (min-width: 45em) {
+    background-image: url(../assets/home/background-home-desktop.jpg);
+  }
+}

@@ -7,18 +7,36 @@
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
   /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: clamp(5rem, 7vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
   /* font-families */
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+@media only screen and (min-width: 35em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+@media only screen and (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-400: 1.125rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -76,6 +94,8 @@ body {
   background-color: hsl(var(--clr-dark));
   min-height: 100vh;
   line-height: 1.5;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -152,6 +172,10 @@ textarea:not([rows]) {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -162,7 +186,38 @@ textarea:not([rows]) {
   max-width: 80rem;
 }
 
-.sr-only {
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+}
+@media only screen and (min-width: 45em) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+  }
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
+  }
+}
+.grid-container * {
+  max-width: 50ch;
+}
+@media only screen and (min-width: 45em) {
+  .grid-container > *:first-child {
+    grid-column: 2;
+  }
+}
+@media only screen and (min-width: 45em) {
+  .grid-container > *:last-child {
+    grid-column: 3;
+  }
+}
+
+.grid-container .grid-container .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -284,13 +339,14 @@ textarea:not([rows]) {
 -------------------------------------------------------------- */
 .large-button {
   position: relative;
-  display: grid;
+  display: inline-grid;
   z-index: 1;
   place-items: center;
   padding: 0 2em;
   border-radius: 50%;
   aspect-ratio: 1;
   text-decoration: none;
+  font-size: 2rem;
 }
 .large-button::after {
   content: "";
@@ -378,4 +434,29 @@ textarea:not([rows]) {
   cursor: default;
   color: hsl(var(--clr-dark));
   background-color: hsl(var(--clr-white)/1);
+}
+
+/*--------------------------------------------------------------
+  # PAGE SPECIFIC CSS
+-------------------------------------------------------------- */
+/* BACKGROUNDS */
+body {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/* HOME */
+.home {
+  background-image: url(../assets/home/background-home-mobile.jpg);
+}
+@media only screen and (min-width: 35em) {
+  .home {
+    background-position: center center;
+    background-image: url(../assets/home/background-home-tablet.jpg);
+  }
+}
+@media only screen and (min-width: 45em) {
+  .home {
+    background-image: url(../assets/home/background-home-desktop.jpg);
+  }
 }/*# sourceMappingURL=styles.css.map */
