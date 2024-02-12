@@ -12,7 +12,7 @@ body {
 .home {
   background-image: url(../assets/home/background-home-mobile.jpg);
 
-  @media only screen and (min-width: 35em) {
+  @media only screen and (min-width: 37.5em) {
     background-position: center center;
     background-image: url(../assets/home/background-home-tablet.jpg);
   }
