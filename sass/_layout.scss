@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+  # LAYOUT
+-------------------------------------------------------------- */
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 3rem;
+
+  @media only screen and (min-width: 45em) {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        2rem,
+        1fr
+      );
+
+    &--home {
+      padding-bottom: max(6rem, 20vh);
+      align-items: end;
+
+      > *:first-child {
+        @media only screen and (min-width: 45em) {
+          grid-column: 2;
+        }
+      }
+
+      > *:last-child {
+        @media only screen and (min-width: 45em) {
+          grid-column: 3;
+        }
+      }
+    }
+  }
+
+  p:not([class]) {
+    max-width: 50ch;
+  }
+
+  &--destination {
+    --flow-space: 2rem;
+    grid-template-areas:
+      "title"
+      "image"
+      "tabs"
+      "content";
+
+    > img {
+      grid-area: image;
+      max-width: 60%;
+
+      @media only screen and (min-width: 45em) {
+        max-width: 100%;
+      }
+    }
+
+    > .tab-list {
+      grid-area: tabs;
+    }
+
+    > .destination-info {
+      grid-area: content;
+    }
+
+    @media only screen and (min-width: 45em) {
+      justify-items: start;
+      align-content: start;
+      grid-template-areas:
+        ". title title ."
+        ". image tabs ."
+        ". image content .";
+    }
+  }
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid hsl(var(--clr-white) / 0.1);
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+
+  p {
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 37.5em) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @media only screen and (min-width: 45em) {
+    --gap: min(6vw, 6rem);
+    justify-content: start;
+  }
+}
+
+.numbered-title {
+  grid-area: title;
+
+  @media only screen and (min-width: 37.5em) {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+}
