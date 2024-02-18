@@ -21,3 +21,31 @@ body {
     background-image: url(../assets/home/background-home-desktop.jpg);
   }
 }
+
+/* DESTINATION */
+.destination {
+  background-image: url(../assets/destination/background-destination-mobile.jpg);
+
+  @media only screen and (min-width: 37.5em) {
+    background-position: center center;
+    background-image: url(../assets/destination/background-destination-tablet.jpg);
+  }
+
+  @media only screen and (min-width: 45em) {
+    background-image: url(../assets/destination/background-destination-desktop.jpg);
+  }
+}
+
+/* CREW */
+.crew {
+  background-image: url(../assets/crew/background-crew-mobile.jpg);
+
+  @media only screen and (min-width: 37.5em) {
+    background-position: center center;
+    background-image: url(../assets/crew/background-crew-tablet.jpg);
+  }
+
+  @media only screen and (min-width: 45em) {
+    background-image: url(../assets/crew/background-crew-desktop.jpg);
+  }
+}
