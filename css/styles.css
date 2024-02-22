@@ -616,6 +616,7 @@ body {
 .grid-container--destination > picture {
   grid-area: image;
   max-width: 60%;
+  align-self: start;
 }
 @media only screen and (min-width: 45em) {
   .grid-container--destination > picture {
